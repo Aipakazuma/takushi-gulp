@@ -5,7 +5,7 @@
 # 使えるようにしてほしいモジュール
 
 * <span style="color: red;">エラー後もwatchを継続（gulp-plumber）</span>
-* ブラウザリロード（browser-sync）
+* <span style="color: red;">ブラウザリロード（browser-sync）</span>
 * コンパイル（sass,jade,jsは ミニファイ）
 * CSS(gulp-minify-css),js(gulp-uglify),画像圧縮
 * スタイルガイド生成（gulp-frontnote）

@@ -1,4 +1,51 @@
+/*
+#overview
+Gulp入門サンプル
+ 
+サンプルファイルです
+*/
+ 
+/*#styleguide
+サンプル見出し1
+ 
+サンプルの見出しスタイル
+hoverすると青く2倍になる
+ 
+```
+<h1>見出し1</h1>
+```
+*/
 h1 {
-  background: #0f0;
+  background: #0ff;
   color: red;
+}
+
+/*#styleguide
+サンプル見出しその２
+```
+<p class="h1">見出し1</p>
+```
+*/
+h2 {
+  background: #fff;
+  color: blue;
+}
+
+/*#styleguide
+サンプル見出しその２
+```
+<p class="h1">見出し1</p>
+```
+*/
+.h1 {
+  background: #f00;
+  color: #f0f;
+  font-size: 36px;
+}
+
+@media screen and (max-width: 768px) {
+  h1 {
+    background: #000;
+    color: yellow;
+  }
 }

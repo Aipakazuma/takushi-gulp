@@ -1,3 +1,4 @@
 (function() {
-  var test = 10;
-});
+  console.log('function reload!!');
+})();
+console.log('reload!!');

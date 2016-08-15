@@ -9,7 +9,7 @@ var uglify = require('gulp-uglify');
 var minifyCss = require('gulp-minify-css');
 var frontnote = require('gulp-frontnote');
 var csscomb = require('gulp-csscomb');
-var mergeMediaQueries = require('gulp-merge-media-queries');
+var combineMediaQueries = require('gulp-combine-media-queries');
 var uncss = require('gulp-uncss');
 
 var paths = {
@@ -34,11 +34,15 @@ gulp.task('server', function() {
 gulp.task('sass', function() {
     return gulp.src(paths.scss)
         .pipe(plumber())
+        .pipe(frontnote({
+            css: '.' + paths.distCss + '/style.css'
+        }))
         .pipe(changed(paths.dist))
         .pipe(sass({
             errLogToConsole: true,
             sourceComments: 'normal'
         }))
+        .pipe(csscomb())
         .pipe(minifyCss())
         .pipe(gulp.dest(paths.distCss))
         .pipe(browser.reload({stream:true}));
