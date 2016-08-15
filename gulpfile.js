@@ -5,8 +5,8 @@ var browser = require('browser-sync');
 var plumber = require('gulp-plumber');
 var prettify = require('gulp-prettify');
 var jade = require('gulp-jade');
-var minifyCss = require('gulp-minify-css');
 var uglify = require('gulp-uglify');
+var minifyCss = require('gulp-minify-css');
 var frontnote = require('gulp-frontnote');
 var csscomb = require('gulp-csscomb');
 var mergeMediaQueries = require('gulp-merge-media-queries');
@@ -44,10 +44,11 @@ gulp.task('sass', function() {
         .pipe(browser.reload({stream:true}));
 });
 
-gulp.task('js', function() {
+gulp.task('js', function(cb) {
     return gulp.src(paths.js)
         .pipe(plumber())
         .pipe(changed(paths.dist))
+        .pipe(uglify({preserveComments: 'some'}))
         .pipe(gulp.dest(paths.distJs))
         .pipe(browser.reload({stream:true}));
 });
@@ -57,7 +58,7 @@ gulp.task('jade', function() {
         .pipe(plumber())
         .pipe(changed(paths.dist))
         .pipe(jade({
-            pretty: true
+            pretty: false
         }))
         .pipe(gulp.dest(paths.dist))
         .pipe(browser.reload({stream:true}));
